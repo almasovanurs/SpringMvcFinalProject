@@ -41,7 +41,7 @@ public class StudentController {
         return "student/getStudents";
     }
 
-    @DeleteMapping("{idStudent}/deleteStudent")
+    @DeleteMapping("/{idStudent}/deleteStudent")
     public String deleteStudent(@PathVariable("idStudent") Long id) {
         serviceStudent.deleteStudent(id);
         return "redirect:/students/{id}";
@@ -57,6 +57,7 @@ public class StudentController {
     @PatchMapping("/{idStudent/updateStudent}")
     public String updateStudent(@ModelAttribute("student") Student student, @PathVariable("idStudent") Long idStudent) {
         serviceStudent.updateStudent(idStudent, student);
+        System.out.println("works");
         return "redirect:/students/{id}";
     }
 }
