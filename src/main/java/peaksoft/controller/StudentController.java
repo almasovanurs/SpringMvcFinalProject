@@ -9,11 +9,11 @@ import peaksoft.service.ServiceGroupImpl;
 import peaksoft.service.ServiceStudentImpl;
 
 @Controller
-@RequestMapping("students/{id}")
+@RequestMapping("/students/{id}")
 public class StudentController {
 
-    ServiceStudentImpl serviceStudent;
-    ServiceGroupImpl serviceGroup;
+   private final ServiceStudentImpl serviceStudent;
+   private final ServiceGroupImpl serviceGroup;
 
     @Autowired
     public StudentController(ServiceStudentImpl serviceStudent, ServiceGroupImpl serviceGroup) {
@@ -22,7 +22,7 @@ public class StudentController {
     }
 
     @GetMapping("/newStudent")
-    public String newStudent(Model model, @PathVariable("id") Long id) {
+    public String newStudent(Model model) {
         model.addAttribute("student", new Student());
         return "student/newStudents";
     }
@@ -48,8 +48,8 @@ public class StudentController {
     }
 
     @GetMapping("/{idStudent}/editStudent")
-    public String editStudent(Model model, @PathVariable("id") Long id,@PathVariable ("idStudent")Long idStudent){
-        model.addAttribute("idStudent", serviceStudent.getStudentById(idStudent));
+    public String editStudent(Model model, @PathVariable("idStudent") Long idStudent,@PathVariable ("id")Long id){
+        model.addAttribute("student", serviceStudent.getStudentById(idStudent));
         model.addAttribute("groupId", id);
         return "student/editStudents";
     }

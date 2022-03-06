@@ -25,14 +25,15 @@
         <th scope="col">StudyFormat</th>
         <th scope="col">Delete</th>
         <th scope="col">Update</th>
+        <p style="text-align:center;"><a class="btn btn-outline-primary" role="button"
+                                         th:href="@{/companies} ">Main Page</a></p>
         <p style="text-align:center;"><a class="btn btn-outline-primary" role="button" th:href="@{/students/{id}/newStudent(id=${groupId})}">Add Student</a></p>
     </tr>
     </thead>
     <tbody th:each="student:${studentLists}">
     <tr>
         <th scope="row" th:text="${student.id}"></th>
-        <td th:href="@{/students/{id}(id=${student.getId()})}"
-            th:text="${student.firstName}"></td>
+        <td  th:text="${student.firstName}"></td>
         <td th:text="${student.lastName}"></td>
         <td th:text="${student.email}"></td>
         <td th:text="${student.studyFormat}"></td>
@@ -43,9 +44,11 @@
         </td>
         <td>
             <a class="btn btn-outline-primary" href="#offcanvasExample" role="button"
-               th:href="@{/students/{id}/{isStudent}/editStudent (id=${student.getId()},id=${groupId})}">Update</a>
+               th:href="@{/students/{id}/{idStudent}/editStudent (idStudent=${student.getId()},id=${groupId})}">Update</a>
         </td>
     </tr>
+
+
     </tbody>
 
 </table>

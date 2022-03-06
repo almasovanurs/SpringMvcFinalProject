@@ -38,7 +38,6 @@ public class ServiceStudentImpl implements ServiceStudent{
 
     @Override
     public void updateStudent(Long id, Student updatedStudent) {
-        studentDao
-                .updateStudent(id, updatedStudent);
+        studentDao.updateStudent(id, updatedStudent);
     }
 }

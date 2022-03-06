@@ -4,11 +4,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import peaksoft.model.Group;
 import peaksoft.model.Teacher;
 import peaksoft.service.ServiceCompanyImpl;
 import peaksoft.service.ServiceCourseImpl;
-import peaksoft.service.ServiceGroupImpl;
 import peaksoft.service.ServiceTeacherImpl;
 
 @Controller
