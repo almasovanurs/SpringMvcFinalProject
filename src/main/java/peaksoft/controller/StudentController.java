@@ -54,10 +54,9 @@ public class StudentController {
         return "student/editStudents";
     }
 
-    @PatchMapping("/{idStudent/updateStudent}")
-    public String updateStudent(@ModelAttribute("student") Student student, @PathVariable("idStudent") Long idStudent) {
-        serviceStudent.updateStudent(idStudent, student);
-        System.out.println("works");
+    @PatchMapping("/{idStudent}/updateStudent")
+    public String updateStudent(@ModelAttribute("student") Student student, @PathVariable("idStudent") Long idStudent){
+        serviceStudent.updateStudent(idStudent,student);
         return "redirect:/students/{id}";
     }
 }
